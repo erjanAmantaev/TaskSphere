@@ -19,6 +19,7 @@ const API_BASE = 'https://tasksphere-production-090a.up.railway.app';
 const Settings: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [accountInfo, setAccountInfo] = useState<any>(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
   const { theme, language, setTheme, setLanguage } = useTheme();
   const { refreshUser } = useAuth();
@@ -205,10 +206,10 @@ const Settings: React.FC = () => {
 
   return (
     <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">
-      <Sidebar />
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
       
-      <div className="flex-1 ml-64 bg-gray-50 dark:bg-gray-900">
-        <Navbar />
+      <div className="flex-1 lg:ml-64 bg-gray-50 dark:bg-gray-900">
+        <Navbar onMenuClick={() => setIsSidebarOpen(true)} />
 
         <div className="px-8 py-8 max-w-4xl">
           <div className="mb-8">

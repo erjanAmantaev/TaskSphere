@@ -13,6 +13,7 @@ import { FiPlus, FiEdit, FiTrash2, FiFolder } from 'react-icons/fi';
 const Categories: React.FC = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [categoryToDelete, setCategoryToDelete] = useState<number | null>(null);
@@ -97,10 +98,10 @@ const Categories: React.FC = () => {
 
   return (
     <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">
-      <Sidebar />
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
       
-      <div className="flex-1 ml-64">
-        <Navbar />
+      <div className="flex-1 lg:ml-64">
+        <Navbar onMenuClick={() => setIsSidebarOpen(true)} />
 
         <div className="px-8 py-8">
           <div className="flex justify-between items-center mb-8">

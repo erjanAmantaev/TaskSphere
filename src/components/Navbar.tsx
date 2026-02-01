@@ -1,12 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FiLogOut, FiUser, FiSettings, FiChevronDown } from 'react-icons/fi';
+import { FiLogOut, FiUser, FiSettings, FiChevronDown, FiMenu } from 'react-icons/fi';
 import { useAuth } from '../contexts/AuthContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const API_BASE = 'https://tasksphere-production-090a.up.railway.app';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  onMenuClick: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
   const { logout, user } = useAuth();
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -32,7 +36,18 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-30 -mt-0.5 dark:bg-gray-800 dark:border-gray-700">
-      <div className="px-6 h-16 flex items-center justify-end">
+      <div className="px-4 lg:px-6 h-16 flex items-center justify-between">
+        {/* Hamburger Menu for Mobile */}
+        <button
+          onClick={onMenuClick}
+          className="lg:hidden text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
+        >
+          <FiMenu size={24} />
+        </button>
+
+        {/* Spacer for desktop */}
+        <div className="hidden lg:block flex-1" />
+
         {/* User Profile Dropdown */}
         <div className="relative" ref={dropdownRef}>
           <button

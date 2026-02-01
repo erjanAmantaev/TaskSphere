@@ -10,6 +10,7 @@ import { FiAward, FiTrendingUp, FiCheckCircle, FiZap } from 'react-icons/fi';
 const Profile: React.FC = () => {
   const [profile, setProfile] = useState<ProfileData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     loadProfile();
@@ -29,10 +30,14 @@ const Profile: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50">
-        <Navbar />
-        <div className="flex justify-center py-12">
-          <LoadingSpinner size="lg" />
+      <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">
+        <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+        
+        <div className="flex-1 lg:ml-64">
+          <Navbar onMenuClick={() => setIsSidebarOpen(true)} />
+          <div className="flex justify-center py-12">
+            <LoadingSpinner size="lg" />
+          </div>
         </div>
       </div>
     );
@@ -49,10 +54,10 @@ const Profile: React.FC = () => {
 
   return (
     <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">
-      <Sidebar />
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
       
-      <div className="flex-1 ml-64">
-        <Navbar />
+      <div className="flex-1 lg:ml-64">
+        <Navbar onMenuClick={() => setIsSidebarOpen(true)} />
 
         <div className="px-8 py-8">
           {/* Header */}

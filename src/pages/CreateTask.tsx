@@ -14,6 +14,7 @@ import type { Category, Tag, CreateTaskData } from '../types';
 import { FiX, FiPlus } from 'react-icons/fi';
 
 const CreateTask: React.FC = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [priority, setPriority] = useState('medium');
@@ -97,10 +98,10 @@ const CreateTask: React.FC = () => {
 
   return (
     <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">
-      <Sidebar />
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
       
-      <div className="flex-1 ml-64">
-        <Navbar />
+      <div className="flex-1 lg:ml-64">
+        <Navbar onMenuClick={() => setIsSidebarOpen(true)} />
 
         <div className="px-8 py-8 max-w-3xl">
           <motion.div

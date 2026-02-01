@@ -14,6 +14,7 @@ const Leaderboard: React.FC = () => {
   const [yourKarma, setYourKarma] = useState(0);
   const [loading, setLoading] = useState(true);
   const [limit, setLimit] = useState(10);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     loadLeaderboard();
@@ -47,10 +48,10 @@ const Leaderboard: React.FC = () => {
 
   return (
     <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">
-      <Sidebar />
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
       
-      <div className="flex-1 ml-64">
-        <Navbar />
+      <div className="flex-1 lg:ml-64">
+        <Navbar onMenuClick={() => setIsSidebarOpen(true)} />
 
         <div className="px-8 py-8 max-w-5xl">
           {/* Header */}

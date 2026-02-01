@@ -13,6 +13,7 @@ const Calendar: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -157,10 +158,10 @@ const Calendar: React.FC = () => {
   if (loading) {
     return (
       <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">
-        <Sidebar />
+        <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
         
-        <div className="flex-1 ml-64">
-          <Navbar />
+        <div className="flex-1 lg:ml-64">
+          <Navbar onMenuClick={() => setIsSidebarOpen(true)} />
           
           <div className="flex justify-center items-center py-12">
             <LoadingSpinner size="lg" />
@@ -172,10 +173,10 @@ const Calendar: React.FC = () => {
 
   return (
     <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">
-      <Sidebar />
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
       
-      <div className="flex-1 ml-64">
-        <Navbar />
+      <div className="flex-1 lg:ml-64">
+        <Navbar onMenuClick={() => setIsSidebarOpen(true)} />
 
         <div className="px-8 py-8">
           {/* Header */}
