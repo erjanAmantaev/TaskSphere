@@ -1,5 +1,5 @@
 import { useTheme } from '../contexts/ThemeContext';
-import { translations, TranslationKey } from '../locales/translations';
+import { translations, type TranslationKey } from '../locales/translations';
 
 export const useTranslation = () => {
   const { language } = useTheme();

@@ -28,16 +28,7 @@ const Navbar: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Generate avatar initials from username or email
-  const getInitials = () => {
-    if (user?.username) {
-      return user.username.substring(0, 2).toUpperCase();
-    }
-    if (user?.email) {
-      return user.email.substring(0, 2).toUpperCase();
-    }
-    return 'U';
-  };
+
 
   return (
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-30 -mt-0.5 dark:bg-gray-800 dark:border-gray-700">

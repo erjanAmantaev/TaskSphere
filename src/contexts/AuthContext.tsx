@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 import { authService } from '../services/auth.service';
-import { userService } from '../services/user.service';
 import { settingsService } from '../services/settings.service';
 import type { LoginResponse, RegisterResponse } from '../types';
 
