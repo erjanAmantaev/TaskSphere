@@ -62,7 +62,7 @@ const ForgotPassword: React.FC = () => {
       await authService.resetPassword(userId, otpCode, newPassword, confirmPassword);
       setSuccess('Password reset successful! You can now login.');
       setTimeout(() => {
-        window.location.href = '/login';
+        window.location.href = '/TaskSphere/login';
       }, 2000);
     } catch (err: any) {
       setError(err.response?.data?.error || 'Failed to reset password');

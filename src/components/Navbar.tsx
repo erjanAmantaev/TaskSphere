@@ -4,7 +4,7 @@ import { FiLogOut, FiUser, FiSettings, FiChevronDown, FiMenu } from 'react-icons
 import { useAuth } from '../contexts/AuthContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const API_BASE = 'https://tasksphere-production-090a.up.railway.app';
+const API_BASE = 'https://tasksphere-production-d461.up.railway.app';
 
 interface NavbarProps {
   onMenuClick: () => void;

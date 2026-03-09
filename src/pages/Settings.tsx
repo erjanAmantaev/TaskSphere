@@ -14,7 +14,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { FiUser, FiMail, FiLock, FiGlobe, FiTrash2, FiSave, FiCamera, FiX } from 'react-icons/fi';
 import { format } from 'date-fns';
 
-const API_BASE = 'https://tasksphere-production-090a.up.railway.app';
+const API_BASE = 'https://tasksphere-production-d461.up.railway.app';
 
 const Settings: React.FC = () => {
   const [loading, setLoading] = useState(true);

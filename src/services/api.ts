@@ -1,6 +1,6 @@
 import axios, { AxiosError, type InternalAxiosRequestConfig } from 'axios';
 
-const API_BASE_URL = 'https://tasksphere-production-090a.up.railway.app/api';
+const API_BASE_URL = 'https://tasksphere-production-d461.up.railway.app/api';
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
@@ -39,7 +39,7 @@ api.interceptors.response.use(
         }
 
         // Try to refresh token - endpoint is at root level, not under /api/
-        const response = await axios.post('https://tasksphere-production-090a.up.railway.app/token/refresh/', {
+        const response = await axios.post('https://tasksphere-production-d461.up.railway.app/token/refresh/', {
           refresh: refreshToken,
         });
 
@@ -56,7 +56,7 @@ api.interceptors.response.use(
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
         localStorage.removeItem('user_id');
-        window.location.href = '/login';
+        window.location.href = '/TaskSphere/login';
         return Promise.reject(refreshError);
       }
     }

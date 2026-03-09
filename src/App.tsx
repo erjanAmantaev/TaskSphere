@@ -25,7 +25,7 @@ function App() {
   return (
     <ThemeProvider>
       <AuthProvider>
-        <Router>
+        <Router basename="/TaskSphere">
           <Routes>
           {/* Public Routes */}
           <Route path="/login" element={<Login />} />

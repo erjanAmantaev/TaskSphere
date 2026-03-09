@@ -385,7 +385,7 @@ npx tsc --noEmit
 Create `.env` file for different environments:
 
 ```env
-VITE_API_BASE_URL=https://tasksphere-production-090a.up.railway.app/api
+VITE_API_BASE_URL=https://tasksphere-production-d461.up.railway.app/api
 ```
 
 Usage:

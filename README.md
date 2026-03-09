@@ -99,7 +99,7 @@ src/
 The app connects to the TaskSphere backend API at:
 
 ```
-https://tasksphere-production-090a.up.railway.app/api
+https://tasksphere-production-d461.up.railway.app/api
 ```
 
 Authentication uses JWT tokens stored in localStorage.
